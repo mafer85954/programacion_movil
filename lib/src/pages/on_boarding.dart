@@ -10,7 +10,7 @@ class OnBoarding extends StatefulWidget {
 }
 
 class _OnBoardingState extends State<OnBoarding> {
-
+  PageController controller = PageController();
   int pages = 0;
 
   List<Map<String, String>> onBoardingDatas = [
@@ -54,6 +54,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 Expanded(
                   flex: 4, 
                   child: PageView.builder(
+                    controller: controller,
                     onPageChanged: (value) {
                       setState(() {
                         pages = value;
@@ -97,33 +98,42 @@ class _OnBoardingState extends State<OnBoarding> {
   }
 
   ElevatedButton _button({required int indexAll}) {
+    
     return ElevatedButton(
-                        onPressed: () {},
-                        child: Text(
-                          pages == indexAll
-                              ? 'Continuar'
-                              : 'Siguiente',
-                          style: TextStyle(
-                              color: pages == indexAll
-                                  ? ColorSelect.btnBackgroundBo1
-                                  : ColorSelect.txtBoSubHe,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          
-                          side: pages == indexAll
-                              ? const BorderSide(width: 3, color: ColorSelect.btnBackgroundBo2)
-                              : const BorderSide(width: 3, color: ColorSelect.btnTextBo1),
-                              
-                          primary: pages == indexAll
-                              ? ColorSelect.btnBackgroundBo2
-                              : ColorSelect.btnBackgroundBo1,
-                        ),
-                      );
+      onPressed: () {
+        if (pages == indexAll){
+          Navigator.pushNamed(context, 'progress') ;
+        }
+        else{
+          controller.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
+          
+        }
+      },
+      child: Text(
+        pages == indexAll
+            ? 'Continuar'
+            : 'Siguiente',
+        style: TextStyle(
+            color: pages == indexAll
+                ? ColorSelect.btnBackgroundBo1
+                : ColorSelect.txtBoSubHe,
+            fontSize: 18,
+            fontWeight: FontWeight.bold),
+      ),
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25),
+        ),
+        
+        side: pages == indexAll
+            ? const BorderSide(width: 3, color: ColorSelect.btnBackgroundBo2)
+            : const BorderSide(width: 3, color: ColorSelect.btnTextBo1),
+            
+        primary: pages == indexAll
+            ? ColorSelect.btnBackgroundBo2
+            : ColorSelect.btnBackgroundBo1,
+      ),
+    );
   }
 
   AnimatedContainer newMethod({required int index}) {

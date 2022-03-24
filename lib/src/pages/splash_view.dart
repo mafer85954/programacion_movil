@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:veterinaria/src/pages/mvp_v1.dart';
 import 'package:veterinaria/src/pages/progress_view.dart';
+import 'package:veterinaria/src/pages/registro.dart';
 import 'package:veterinaria/src/styles/colors/colors_views.dart';
 import 'dart:ui' as ui;
 
@@ -39,7 +40,7 @@ class _SplashViewState extends State<SplashView> {
         child: SizedBox(
           child: CustomPaint(
             painter: _SplashCanvas(image),
-          ),
+          ), 
         height: double.infinity, 
         width: double.infinity
         ),
@@ -52,9 +53,10 @@ class _SplashViewState extends State<SplashView> {
     Navigator.pushReplacement(
       context, 
       MaterialPageRoute(
-        //builder: (context)=> OnBoarding(),
-        builder: (context)=> ProgressView(),
+        builder: (context)=> const OnBoarding(),
+        //builder: (context)=> ProgressView(),
         //builder: (context)=> const MVP_V1(),
+        //builder: (context)=> Registro_view(),
       ),
     );
 
@@ -104,8 +106,9 @@ class _SplashCanvas extends CustomPainter {
 
     canvas.drawPath(path2, paint2);
 
-    canvas.scale(0.24, 0.24);
-    canvas.drawImage(imageCanvas!, const Offset(300 * 2.5, 320 * 3.0), paint);
+    canvas.scale(0.30,0.30);
+    
+    canvas.drawImage(imageCanvas!, const Offset(125 * 2.5, 320 * 3.0), paint);
 
   }
 
@@ -113,7 +116,7 @@ class _SplashCanvas extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     // TODO: implement shouldRepaint
-    throw UnimplementedError();
+    return true;
   }
 
 }

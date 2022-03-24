@@ -26,6 +26,7 @@ class _ProgressViewState extends State<ProgressView> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
+    updateProgress();
   }
 
   @override
@@ -46,17 +47,18 @@ class _ProgressViewState extends State<ProgressView> {
   void updateProgress() {
     Timer.periodic(
       const Duration(
-        milliseconds: 100
+        milliseconds: 20
       ), (timer) {
-        if (progress == 100.00) 
-        {
-          progress = 0.0;
+        if (progress == 100) {
+          Navigator.pushNamed(context, 'MPV_V1');
+          progress = 100;
+          timer.cancel();
         }
         else {
           setState(() {
             progress = progress + 1;
           });
-        }
+        } 
     });
   }
 }

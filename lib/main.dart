@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:veterinaria/src/pages/mvp_v1.dart';
 import 'package:veterinaria/src/pages/home_header.dart';
+import 'package:veterinaria/src/pages/on_boarding.dart';
+import 'package:veterinaria/src/pages/progress_view.dart';
+import 'package:veterinaria/src/pages/registro.dart';
+import 'package:veterinaria/src/pages/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +25,10 @@ class MyApp extends StatelessWidget {
       routes: {
         'MPV_V1' : (BuildContext context) => const MVP_V1(),
         'InitialHeader' : (BuildContext context) => const HomeHeader(),
+        'splash': (BuildContext context) => const SplashView(),
+        'onboarding': (BuildContext context) => const OnBoarding(),
+        'progress': (BuildContext context) =>  ProgressView(),
+        'registro': (BuildContext context) =>  Registro_view(),
       },
     );
   }
