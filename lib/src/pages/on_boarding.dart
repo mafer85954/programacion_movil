@@ -80,12 +80,13 @@ class _OnBoardingState extends State<OnBoarding> {
                           (index) => newMethod(index: index),
                         ),
                       ),
-                      const Padding(padding: EdgeInsets.only(top: 180)),
+                      const Padding(padding: EdgeInsets.only(bottom: 150)),
                       SizedBox(
                         width: 300,
                         height: 50,
                         child: _button(indexAll : onBoardingDatas.length - 1),
-                      )
+                      ),
+                      
                     ],
                   ),
                 ),   
@@ -173,8 +174,8 @@ class ContentBoarding extends StatelessWidget {
           children: [
             Image.asset(
               image,
-              width: 290,
-              height: 290,
+              width: 200,
+              height: 200,
             ), 
             Text(
               text,

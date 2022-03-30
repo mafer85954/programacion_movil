@@ -9,20 +9,21 @@ class MVP_V1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: Padding(
         padding: const EdgeInsets.only(left: 24.0, right: 24.0),
         child: Center(
           child: Column(
             children: <Widget> [
               Container(
-                child: Image.asset("../assets/images/logo_acostado.png"),
+                child: Image.asset("assets/images/Logo_acostado.png"),
                 margin: const EdgeInsets.only(top: 80),
                 height: 150, 
                 
               ),
 
               Container(
-                margin: const EdgeInsets.only(top: 30),
+                margin: const EdgeInsets.only(top: 20),
                 width: 300,
                 height: 48,
                 child: ElevatedButton(
@@ -44,14 +45,13 @@ class MVP_V1 extends StatelessWidget {
               ),
 
               Container(
-                margin: const EdgeInsets.only(top: 30),
+                margin: const EdgeInsets.only(top: 20),
                 width: 300,
                 height: 48,
                 child: ElevatedButton(
                   onPressed: () {}, 
                   child: Row(
                     children: const [
-                      Padding(padding: EdgeInsets.only(right: 0)),
                       Text("  "),
                       Icon(Icons.facebook_outlined, size: 30),
                       Padding(padding: EdgeInsets.only(right: 40)),
@@ -67,7 +67,7 @@ class MVP_V1 extends StatelessWidget {
               ),
 
               Container(
-                margin: const EdgeInsets.only(top: 30),
+                margin: const EdgeInsets.only(top: 20),
                 width: 300,
                 height: 48,
                 child: ElevatedButton(
@@ -93,35 +93,50 @@ class MVP_V1 extends StatelessWidget {
                 )
               ),
 
-              const Padding(padding: EdgeInsets.only(top: 50)),
+              const Padding(padding: EdgeInsets.only(top: 15)),
 
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextButton(
-                    onPressed: () {}, 
-                    child: const Text("Entrar como invitado", 
-                      style: TextStyle(color: ColorSelect.textButton, fontSize: 15, fontWeight: FontWeight.bold))
+                  SizedBox(
+                    height: 30,
+                    child: TextButton(
+                      onPressed: (){},
+                      child: const Text(
+                        'Entrar como invitado',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xfffc1460)
+                        ),
+                      )
+                    ),
                   ),
-                  TextButton(
-                    onPressed: () {}, 
-                    child: const Text("Entrar como vendedor", 
-                      style: TextStyle(color: ColorSelect.btnBackgroundBo2, fontSize: 15, fontWeight: FontWeight.bold))
-                  ),
+                  // Vendedor
+                  SizedBox(
+                    height: 30,
+                    child: TextButton(
+                      onPressed: (){}, 
+                      child: const Text(
+                        'Entrar como vendedor',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xf76aa757)
+                        ),
+                      )
+                    ),
+                  )
                 ],
               ),
-
-
+              const Padding(padding: EdgeInsets.only(top: 15)),
               Container(
-                margin: const EdgeInsets.only(bottom:15, top: 20),
-                width: 300,
-                height: 48,
+                //margin: const EdgeInsets.only(bottom:0, top: 0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text("¿Ya tienes una cuenta?", style: TextStyle(fontSize: 15),),
                     TextButton(
-                      onPressed: () {}, 
+                      onPressed: () {Navigator.pushNamed(context, 'inicio_sesion') ;}, 
                       child: const Text("Iniciar Sesión", 
                         style: TextStyle(color: Color(0xfffc1460), fontSize: 15, fontWeight: FontWeight.bold))
                     ),
