@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:veterinaria/src/styles/colors/colors_views.dart';
 
+import '../models/login_service.dart';
+
 class InicioSesion extends StatefulWidget {
   InicioSesion({Key? key}) : super(key: key);
 
@@ -16,7 +18,8 @@ class _InicioSesionState extends State<InicioSesion> {
   late String _passw;
 
   String password = '';
-  bool isPasswordVisible = false;
+  String email = '';
+  bool isPasswordVisible = true;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +28,11 @@ class _InicioSesionState extends State<InicioSesion> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: ColorSelect.paginatorNext),
+          icon: const Icon(Icons.arrow_back_ios,
+              color: ColorSelect.paginatorNext),
           onPressed: () => Navigator.of(context).pop(),
-        ),        backgroundColor: ColorSelect.appBar,
+        ),
+        backgroundColor: ColorSelect.appBar,
         title: const Text(
           'Iniciar Sesión                                                           ',
           style: TextStyle(fontSize: 18),
@@ -42,32 +47,29 @@ class _InicioSesionState extends State<InicioSesion> {
           ),
         ],
       ),
-      body: ListView(
-        children:[
-          Container(
-            width: double.infinity,            
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: Column(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 30,
-                  child: const Text(
-                    'Inicia sesión con tu cuenta para continuar',
-                    style: TextStyle(
-                      color: ColorSelect.txtBoSubHe,
-                      fontSize: 14,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+      body: ListView(children: [
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          child: Column(children: [
+            const Padding(padding: EdgeInsets.only(top: 20)),
+            Container(
+              width: double.infinity,
+              height: 30,
+              child: const Text(
+                'Inicia sesión con tu cuenta para continuar',
+                style: TextStyle(
+                  color: ColorSelect.txtBoSubHe,
+                  fontSize: 14,
                 ),
-                const Padding(padding: EdgeInsets.only(top: 10)),
-                inputs(width, height, context),
-              ]
+                textAlign: TextAlign.left,
+              ),
             ),
-          ),
-        ]
-      ),
+            const Padding(padding: EdgeInsets.only(top: 50)),
+            inputs(width, height, context),
+          ]),
+        ),
+      ]),
     );
   }
 
@@ -93,7 +95,6 @@ class _InicioSesionState extends State<InicioSesion> {
             color: null,
             height: 45,
             child: TextField(
-
               controller: _email,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
@@ -105,6 +106,9 @@ class _InicioSesionState extends State<InicioSesion> {
                 ),
                 hintText: 'Email Address',
               ),
+              onChanged: (text) {
+                email = text;
+              },
             ),
           ),
           const Padding(padding: EdgeInsets.only(top: 25)),
@@ -131,19 +135,16 @@ class _InicioSesionState extends State<InicioSesion> {
                   borderRadius: BorderRadius.circular(10),
                   borderSide: const BorderSide(color: ColorSelect.paginator),
                 ),
-                    
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                
-                hintText: 'Contraseña',
-                
+                hintText: 'Password',
                 suffixIcon: IconButton(
                   icon: isPasswordVisible
-                    ? const Icon(Icons.visibility_off)
-                    : const Icon(Icons.visibility),
+                      ? const Icon(Icons.visibility)
+                      : const Icon(Icons.visibility_off),
                   onPressed: () =>
-                    setState(() => isPasswordVisible =  !isPasswordVisible ),
+                      setState(() => isPasswordVisible = !isPasswordVisible),
                 ),
                 border: const OutlineInputBorder(),
               ),
@@ -151,39 +152,35 @@ class _InicioSesionState extends State<InicioSesion> {
             ),
           ),
           const Padding(padding: EdgeInsets.only(top: 10)),
-              Container(
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, 'recuperar');
-                  },
-                  child: Container(
-                    width: double.infinity,
-                    child: const Text(
-                      '¿Has olvidado tu contraseña?',
-                      style: TextStyle(
-
-                        color: ColorSelect.paginatorNext,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold
-                      ),
-                      textAlign: TextAlign.right,
-                    ),
-                  ),
+          Container(
+            child: TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, 'recuperar');
+              },
+              child: Container(
+                width: double.infinity,
+                child: const Text(
+                  '¿Has olvidado tu contraseña?',
+                  style: TextStyle(
+                      color: ColorSelect.paginatorNext,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.right,
                 ),
               ),
-          
+            ),
+          ),
           const Padding(padding: EdgeInsets.only(top: 100)),
-          boton(), 
+          boton(),
           const Padding(padding: EdgeInsets.only(top: 10)),
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              
               children: [
                 const Text(
                   '¿Todavía no tienes cuenta? ',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 14,
                   ),
                 ),
                 TextButton(
@@ -194,7 +191,7 @@ class _InicioSesionState extends State<InicioSesion> {
                       'Registrate',
                       style: TextStyle(
                           color: ColorSelect.paginatorNext,
-                          fontSize: 12,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold),
                     ))
               ],
@@ -215,11 +212,38 @@ class _InicioSesionState extends State<InicioSesion> {
             primary: ColorSelect.btnBackgroundBo2,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30))),
-        onPressed: () {},
-        child: const Text('Ingresar', style: TextStyle(fontSize: 18),),
+        onPressed: () {
+          if (email == '' && password == '') {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                duration: Duration(milliseconds: 1000),
+                content: Text('Rellene los campos'),
+              ),
+            );
+          } else {
+            login(email, password).then((value) {
+              print(value);
+              if (value['status'] == 'success') {
+                Navigator.pushReplacementNamed(context, 'principal');
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    duration: Duration(milliseconds: 1000),
+                    content: Text('Contraseña incorrecta'),
+                  ),
+                );
+              }
+            });
+          }
+        },
+        /* onPressed: () {
+          Navigator.pushNamed(context, 'principal');
+        }, */
+        child: const Text(
+          'Ingresar',
+          style: TextStyle(fontSize: 18),
+        ),
       ),
     );
   }
-
-  
 }

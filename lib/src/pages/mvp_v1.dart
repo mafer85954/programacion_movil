@@ -3,31 +3,26 @@ import 'package:veterinaria/src/styles/colors/colors_views.dart';
 
 // ignore: camel_case_types
 class MVP_V1 extends StatelessWidget {
-   
   const MVP_V1({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Padding(
         padding: const EdgeInsets.only(left: 24.0, right: 24.0),
         child: Center(
-          child: Column(
-            children: <Widget> [
-              Container(
-                child: Image.asset("assets/images/Logo_acostado.png"),
-                margin: const EdgeInsets.only(top: 80),
-                height: 150, 
-                
-              ),
-
-              Container(
-                margin: const EdgeInsets.only(top: 20),
+          child: Column(children: <Widget>[
+            Container(
+              child: Image.asset("assets/images/Logo_acostado.png"),
+              margin: const EdgeInsets.only(top: 80),
+              height: 150,
+            ),
+            Container(
+                margin: const EdgeInsets.only(top: 70),
                 width: 300,
                 height: 48,
                 child: ElevatedButton(
-                  onPressed: () {}, 
+                  onPressed: () {},
                   child: Row(
                     children: const [
                       Padding(padding: EdgeInsets.only(right: 0)),
@@ -39,17 +34,16 @@ class MVP_V1 extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xff3169f5),
                     elevation: 0,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
                   ),
-                )
-              ),
-
-              Container(
-                margin: const EdgeInsets.only(top: 20),
+                )),
+            Container(
+                margin: const EdgeInsets.only(top: 40),
                 width: 300,
                 height: 48,
                 child: ElevatedButton(
-                  onPressed: () {}, 
+                  onPressed: () {},
                   child: Row(
                     children: const [
                       Text("  "),
@@ -61,19 +55,18 @@ class MVP_V1 extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xff324fa5),
                     elevation: 0,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
                   ),
-                )
-              ),
-
-              Container(
-                margin: const EdgeInsets.only(top: 20),
+                )),
+            Container(
+                margin: const EdgeInsets.only(top: 40),
                 width: 300,
                 height: 48,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, 'registro') ;
-                  }, 
+                    Navigator.pushNamed(context, 'registro');
+                  },
                   child: Row(
                     children: const [
                       Padding(padding: EdgeInsets.only(right: 0)),
@@ -88,63 +81,64 @@ class MVP_V1 extends StatelessWidget {
                     primary: const Color.fromRGBO(200, 200, 200, 0),
                     side: const BorderSide(color: Color(0xff64686f)),
                     elevation: 0,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
                   ),
-                )
-              ),
-
-              const Padding(padding: EdgeInsets.only(top: 15)),
-
-              Column(
-                children: [
-                  SizedBox(
-                    height: 30,
-                    child: TextButton(
-                      onPressed: (){},
+                )),
+            const Padding(padding: EdgeInsets.only(top: 35)),
+            Column(
+              children: [
+                SizedBox(
+                  height: 30,
+                  child: TextButton(
+                      onPressed: () {},
                       child: const Text(
                         'Entrar como invitado',
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xfffc1460)
-                        ),
-                      )
-                    ),
-                  ),
-                  // Vendedor
-                  SizedBox(
-                    height: 30,
-                    child: TextButton(
-                      onPressed: (){}, 
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xfffc1460)),
+                      )),
+                ),
+                const Padding(padding: EdgeInsets.only(top: 30)),
+                // Vendedor
+                SizedBox(
+                  height: 30,
+                  child: TextButton(
+                      onPressed: () {},
                       child: const Text(
                         'Entrar como vendedor',
                         style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xf76aa757)
-                        ),
-                      )
-                    ),
-                  )
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xf76aa757)),
+                      )),
+                )
+              ],
+            ),
+            const Padding(padding: EdgeInsets.only(top: 15)),
+            Container(
+              //margin: const EdgeInsets.only(bottom:0, top: 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "¿Ya tienes una cuenta?",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'inicio_sesion');
+                      },
+                      child: const Text("Iniciar Sesión",
+                          style: TextStyle(
+                              color: Color(0xfffc1460),
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold))),
                 ],
               ),
-              const Padding(padding: EdgeInsets.only(top: 15)),
-              Container(
-                //margin: const EdgeInsets.only(bottom:0, top: 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("¿Ya tienes una cuenta?", style: TextStyle(fontSize: 15),),
-                    TextButton(
-                      onPressed: () {Navigator.pushNamed(context, 'inicio_sesion') ;}, 
-                      child: const Text("Iniciar Sesión", 
-                        style: TextStyle(color: Color(0xfffc1460), fontSize: 15, fontWeight: FontWeight.bold))
-                    ),
-                  ],
-                ),
-              )
-            ]
-          ),
+            )
+          ]),
         ),
       ),
     );

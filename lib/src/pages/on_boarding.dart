@@ -28,7 +28,7 @@ class _OnBoardingState extends State<OnBoarding> {
       "text": "HOSPITALIDAD",
       'text1': 'Brindamos todos los servicios para consentir',
       "image": 'assets/images/B3.png',
-    }, 
+    },
     {
       'text': 'VETERINARIA',
       'text1': 'Brindamos todos los servicios para consentir',
@@ -43,77 +43,71 @@ class _OnBoardingState extends State<OnBoarding> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    return Scaffold(
       body: SafeArea(
-        child: Container(
-          color: Colors.white,
-          child: SizedBox(
-            width: double.infinity, 
-            child: Column(
-              children: <Widget> [
-                Expanded(
-                  flex: 4, 
-                  child: PageView.builder(
-                    controller: controller,
-                    onPageChanged: (value) {
-                      setState(() {
-                        pages = value;
-                      });
-                    },
-                    
-                    itemCount: onBoardingDatas.length,
-                    itemBuilder: (context, index) => ContentBoarding(
-                      text: onBoardingDatas[index]["text"]!,
-                      text1: onBoardingDatas[index]["text1"]!,
-                      image: onBoardingDatas[index]["image"]!,
-                    ),
+          child: Container(
+        color: Colors.white,
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                flex: 4,
+                child: PageView.builder(
+                  controller: controller,
+                  onPageChanged: (value) {
+                    setState(() {
+                      pages = value;
+                    });
+                  },
+                  itemCount: onBoardingDatas.length,
+                  itemBuilder: (context, index) => ContentBoarding(
+                    text: onBoardingDatas[index]["text"]!,
+                    text1: onBoardingDatas[index]["text1"]!,
+                    image: onBoardingDatas[index]["image"]!,
                   ),
                 ),
-                Expanded(
-                  flex: 3,
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(
-                          onBoardingDatas.length,
-                          (index) => newMethod(index: index),
-                        ),
+              ),
+              Expanded(
+                flex: 3,
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        onBoardingDatas.length,
+                        (index) => newMethod(index: index),
                       ),
-                      const Padding(padding: EdgeInsets.only(bottom: 150)),
-                      SizedBox(
-                        width: 300,
-                        height: 50,
-                        child: _button(indexAll : onBoardingDatas.length - 1),
-                      ),
-                      
-                    ],
-                  ),
-                ),   
-              ],
-            ),
+                    ),
+                    const Padding(padding: EdgeInsets.only(bottom: 150)),
+                    SizedBox(
+                      width: 300,
+                      height: 50,
+                      child: _button(indexAll: onBoardingDatas.length - 1),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-        )
-      ),
+        ),
+      )),
     );
   }
 
   ElevatedButton _button({required int indexAll}) {
-    
     return ElevatedButton(
       onPressed: () {
-        if (pages == indexAll){
-          Navigator.pushNamed(context, 'progress') ;
-        }
-        else{
-          controller.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
-          
+        if (pages == indexAll) {
+          Navigator.pushNamed(context, 'progress');
+        } else {
+          controller.nextPage(
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeIn);
         }
       },
       child: Text(
-        pages == indexAll
-            ? 'Continuar'
-            : 'Siguiente',
+        pages == indexAll ? 'Continuar' : 'Siguiente',
         style: TextStyle(
             color: pages == indexAll
                 ? ColorSelect.btnBackgroundBo1
@@ -125,11 +119,9 @@ class _OnBoardingState extends State<OnBoarding> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25),
         ),
-        
         side: pages == indexAll
             ? const BorderSide(width: 3, color: ColorSelect.btnBackgroundBo2)
             : const BorderSide(width: 3, color: ColorSelect.btnTextBo1),
-            
         primary: pages == indexAll
             ? ColorSelect.btnBackgroundBo2
             : ColorSelect.btnBackgroundBo1,
@@ -138,18 +130,16 @@ class _OnBoardingState extends State<OnBoarding> {
   }
 
   AnimatedContainer newMethod({required int index}) {
-
     return AnimatedContainer(
-
       margin: const EdgeInsets.only(right: 8),
       height: 4,
-      width: pages == index ? 20 : 12, 
+      width: pages == index ? 20 : 12,
       duration: kThemeAnimationDuration,
-      decoration: 
-        BoxDecoration(
-          color: pages == index ? ColorSelect.paginatorNext : ColorSelect.paginator,
-          borderRadius: BorderRadius.circular(3)
-        ),
+      decoration: BoxDecoration(
+          color: pages == index
+              ? ColorSelect.paginatorNext
+              : ColorSelect.paginator,
+          borderRadius: BorderRadius.circular(3)),
     );
   }
 }
@@ -162,13 +152,13 @@ class ContentBoarding extends StatelessWidget {
     required this.image,
   }) : super(key: key);
 
-  final String text, text1, image; 
+  final String text, text1, image;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget> [
+      children: <Widget>[
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -176,11 +166,11 @@ class ContentBoarding extends StatelessWidget {
               image,
               width: 200,
               height: 200,
-            ), 
+            ),
             Text(
               text,
               style: const TextStyle(
-                color: ColorSelect.txtBoHe, 
+                color: ColorSelect.txtBoHe,
                 fontSize: 18,
               ),
             ),
@@ -190,17 +180,13 @@ class ContentBoarding extends StatelessWidget {
                 text1,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: ColorSelect.txtBoSubHe, 
+                  color: ColorSelect.txtBoSubHe,
                   fontSize: 15,
                 ),
               ),
             ),
           ],
         ),
-        
-        
-        
-        
       ],
     );
   }
