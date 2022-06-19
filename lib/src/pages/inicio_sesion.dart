@@ -212,7 +212,7 @@ class _InicioSesionState extends State<InicioSesion> {
             primary: ColorSelect.btnBackgroundBo2,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30))),
-        onPressed: () {
+        /*onPressed: () {
           if (email == '' && password == '') {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
@@ -235,10 +235,10 @@ class _InicioSesionState extends State<InicioSesion> {
               }
             });
           }
-        },
-        /* onPressed: () {
+        },*/
+        onPressed: () {
           Navigator.pushNamed(context, 'principal');
-        }, */
+        },
         child: const Text(
           'Ingresar',
           style: TextStyle(fontSize: 18),

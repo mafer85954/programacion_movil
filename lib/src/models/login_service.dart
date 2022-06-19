@@ -5,7 +5,7 @@ Future<Map<String, dynamic>> login(String email, String password) async {
   Map<String, String> headers = {'Content-Type': 'application/json'};
   String loginAPI = '/api/login/';
 
-  String host = '192.168.88.84:3000'; //conexion al back
+  String host = '192.168.89.127:3000'; //conexion al back
 
   try {
     final response = await http.post(
@@ -15,7 +15,8 @@ Future<Map<String, dynamic>> login(String email, String password) async {
         {'email': email, 'password': password},
       ),
     );
-
+    print(email);
+    print(password);
     print(response);
 
     if (response.statusCode == 200) {

@@ -192,11 +192,11 @@ class _Ventana_principal extends State<Ventana_principal> {
                       margin:
                           const EdgeInsets.only(top: 20, right: 20, left: 20),
                       width: double.infinity,
-                      height: 300,
+                      height: 250,
                       //color: ColorSelect.txtBoHe,
                       child: GridView.count(
                         crossAxisSpacing: 10,
-                        mainAxisSpacing: 50,
+                        mainAxisSpacing: 10,
                         crossAxisCount: 3,
                         children: animales
                             .map((e) => _createCards(e, context))
