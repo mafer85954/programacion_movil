@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: 'InitialHeader',
+      initialRoute: 'principal',
+      //initialRoute: 'InitialHeader',
       routes: {
         'MPV_V1': (BuildContext context) => const MVP_V1(),
         'InitialHeader': (BuildContext context) => const HomeHeader(),

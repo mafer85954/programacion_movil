@@ -109,14 +109,23 @@ class _Ventana_principal extends State<Ventana_principal> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             Container(
+                                width: 65.0,
+                                height: 65.0,
+                                decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: AssetImage(
+                                            'assets/images/animales/animal1.png')))),
+                            Container(
                               width: 65.0,
                               height: 65.0,
                               decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
                                     fit: BoxFit.fill,
-                                    image: NetworkImage(
-                                        "https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/large/public/2021-10/los-mejores-juegos-de-perritos-cachorros-por-mes-de-edad.png?itok=UNEbd6Xh")),
+                                    image: AssetImage(
+                                        'assets/images/animales/animal2.png')),
                               ),
                             ),
                             const Padding(
@@ -128,8 +137,8 @@ class _Ventana_principal extends State<Ventana_principal> {
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
                                     fit: BoxFit.fill,
-                                    image: NetworkImage(
-                                        "https://t1.ea.ltmcdn.com/es/posts/7/4/3/como_ayudar_a_un_gatito_a_defecar_20347_600.jpg")),
+                                    image: AssetImage(
+                                        'assets/images/animales/animal3.png')),
                               ),
                             ),
                             const Padding(
@@ -141,8 +150,8 @@ class _Ventana_principal extends State<Ventana_principal> {
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
                                     fit: BoxFit.fill,
-                                    image: NetworkImage(
-                                        "https://media.istockphoto.com/photos/baby-turtle-being-held-picture-id1344044621?k=20&m=1344044621&s=612x612&w=0&h=d61fznldmlwH7X6HW50Nq0L-reqb_HST4X7h5WvsSNY=")),
+                                    image: AssetImage(
+                                        'assets/images/animales/animal4.png')),
                               ),
                             ),
                             const Padding(
@@ -154,8 +163,8 @@ class _Ventana_principal extends State<Ventana_principal> {
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
                                     fit: BoxFit.fill,
-                                    image: NetworkImage(
-                                        "https://t2.ea.ltmcdn.com/es/posts/1/9/5/alimentacion_del_conejo_enano_23591_600_square.jpg")),
+                                    image: AssetImage(
+                                        'assets/images/animales/animal5.png')),
                               ),
                             ),
                             const Padding(
@@ -167,8 +176,8 @@ class _Ventana_principal extends State<Ventana_principal> {
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
                                     fit: BoxFit.fill,
-                                    image: NetworkImage(
-                                        "https://img.freepik.com/foto-gratis/pato-bebe_38810-7655.jpg")),
+                                    image: AssetImage(
+                                        'assets/images/animales/animal6.png')),
                               ),
                             ),
                             const Padding(
@@ -180,8 +189,8 @@ class _Ventana_principal extends State<Ventana_principal> {
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
                                     fit: BoxFit.fill,
-                                    image: NetworkImage(
-                                        "https://elcomercio.pe/resizer/onmCGDTJIsFWTcQVvT_yfBrTve4=/580x330/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/VA7557Q7WVCZZGVYYCUY4EK2XU.png")),
+                                    image: AssetImage(
+                                        'assets/images/animales/animal7.png')),
                               ),
                             ),
                           ],
